@@ -23,6 +23,28 @@ A Method to Drag the Video When Playing Video
 - 4、当TextureView到达右下方时，控制在水平方向上拖动，到达左边界时，如果再滑动，就销毁TextureView
 
 
+##欢迎关注我的个人公众号，android 技术干货，问题深度总结，FrameWork源码解析，插件化研究，最新开源项目推荐
+
+![这里写图片描述](https://github.com/hejunlin2013/RedPackage/blob/master/image/qrcode.jpg)
+
+License
+--------
+```
+Copyright (C) 2016 hejunlin
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
 ###特别鸣谢：
 @flavienlaurent（法国Fourmob公司工程师）的项目、@Minsoo, Kim（韩国Kakao Corp工程师）的思路, JOJO(阿里巴巴工程师)
 
