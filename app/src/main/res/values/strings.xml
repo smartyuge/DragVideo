@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">DragVideo</string>
+
+
+    <array name="program_list">
+        <item>美人为陷3</item>
+        <item>北上广依然相信爱情</item>
+        <item>锦绣未央</item>
+        <item>放弃我抓紧我</item>
+        <item>画江湖之不良人2</item>
+        <item>灵魂摆渡3</item>
+        <item>从你的全世界路过</item>
+        <item>湄公河行动</item>
+        <item>爵迹</item>
+        <item>美人为陷3</item>
+        <item>北上广依然相信爱情</item>
+        <item>锦绣未央</item>
+        <item>放弃我抓紧我</item>
+        <item>画江湖之不良人2</item>
+        <item>灵魂摆渡3</item>
+        <item>从你的全世界路过</item>
+        <item>湄公河行动</item>
+        <item>爵迹</item>
+        <item>美人为陷3</item>
+        <item>北上广依然相信爱情</item>
+        <item>锦绣未央</item>
+        <item>放弃我抓紧我</item>
+        <item>画江湖之不良人2</item>
+        <item>灵魂摆渡3</item>
+        <item>从你的全世界路过</item>
+        <item>湄公河行动</item>
+        <item>爵迹</item>
+    </array>
+
+    <array name="info_list">
+        <item>上映：2016年</item>
+        <item>集数：共12集</item>
+        <item>导演：李达超 梁辛全</item>
+        <item>主演：杨蓉 白宇 何奉天 王雨 南伏龙</item>
+        <item>blog：http://blog.csdn.net/hejjunlin</item>
+        <item>逆流的鱼yuiop create by 2016-12-13</item>
+        <item>github：https://github.com/hejunlin2013</item>
+        <item>个人公众号：何俊林 ，搜索“何俊林”就能找到</item>
+        <item>内容：个人android 技术干货，问题深度总结，FrameWork源码解析，插件化研究，最新开源项目推荐</item>
+        <item>上映：2016年</item>
+        <item>集数：共12集</item>
+        <item>导演：李达超 梁辛全</item>
+        <item>主演：杨蓉 白宇 何奉天 王雨 南伏龙</item>
+        <item>blog：http://blog.csdn.net/hejjunlin</item>
+        <item>逆流的鱼yuiop create by 2016-12-13</item>
+        <item>github：https://github.com/hejunlin2013</item>
+        <item>个人公众号：何俊林 ，搜索“何俊林”就能找到</item>
+        <item>内容：个人android 技术干货，问题深度总结，FrameWork源码解析，插件化研究，最新开源项目推荐</item>
+    </array>
+</resources>
