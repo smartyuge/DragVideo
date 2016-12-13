@@ -31,14 +31,7 @@ import android.view.animation.Interpolator;
 
 import java.util.Arrays;
 
-/**
- * ViewDragHelper is a utility class for writing custom ViewGroups. It offers a number
- * of useful operations and state tracking for allowing a user to drag and reposition
- * views within their parent ViewGroup.
- * 本类直接从原类ViewDragHelper中复制过来，同时将mCapturedView.offsetLeftAndRight和mCapturedView.offsetTopAndBottom
- * 注释了，因为我只希望这个类通过计算进度返回我动作的过程量，让我自己处理组件的变化，经实验注释掉后性能有提升,当然直接用原类也是可以的，只是
- * 卡顿明显
- */
+
 public class CustomViewDragHelper {
     private static final String TAG = "ViewDragHelper";
 
