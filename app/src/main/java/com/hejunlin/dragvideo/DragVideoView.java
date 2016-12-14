@@ -179,9 +179,9 @@ public class DragVideoView extends ViewGroup {
         setBackgroundColor(Color.TRANSPARENT);
     }
 
-    public void restorePosition() {
+    public void restorePosition() {//恢复原始状态
         mPlayer.setAlpha(1f);
-        this.setAlpha(0f);
+        this.setAlpha(0f);//当前DragVideoView变成透明
         mLeft = mHorizontalRange - mPlayerMinWidth;
         mTop = mVerticalRange;
         mIsMinimum = true;
@@ -189,7 +189,7 @@ public class DragVideoView extends ViewGroup {
     }
 
     public void show() {
-        this.setAlpha(1f);
+        this.setAlpha(1f);//当前DragVideoView变成全部显示
         mDragDirect = VERTICAL;
         maximize();
     }
@@ -213,11 +213,11 @@ public class DragVideoView extends ViewGroup {
 
                 case MotionEvent.ACTION_MOVE:
                     if (mDragDirect == NONE) {
-                        int dx = Math.abs(mDownX - (int) event.getX());
-                        int dy = Math.abs(mDownY - (int) event.getY());
-                        int slop = mDragHelper.getTouchSlop();
+                        int dx = Math.abs(mDownX - (int) event.getX());//上一次getX()时和在MOVE过程中getX()的差值
+                        int dy = Math.abs(mDownY - (int) event.getY());//上一次getY()时和在MOVE过程中getY()的差值
+                        int slop = mDragHelper.getTouchSlop();//用户拖动的最小距离
 
-                        if (Math.sqrt(dx * dx + dy * dy) >= slop) {
+                        if (Math.sqrt(dx * dx + dy * dy) >= slop) {//判断是水平方向拖拽，还是垂直方向上拖拽
                             if (dy >= dx)
                                 mDragDirect = VERTICAL;
                             else
@@ -263,7 +263,7 @@ public class DragVideoView extends ViewGroup {
         slideVerticalTo(1f);
     }
 
-    private boolean slideVerticalTo(float slideOffset) {
+    private boolean slideVerticalTo(float slideOffset) {//滑动到垂直方向上某位置
         int topBound = mMinTop;
         int y = (int) (topBound + slideOffset * mVerticalRange);
 
@@ -275,22 +275,22 @@ public class DragVideoView extends ViewGroup {
         return false;
     }
 
-    private void slideToLeft() {
+    private void slideToLeft() {//左滑
         slideHorizontalTo(0f);
         mDisappearDirect = SLIDE_TO_LEFT;
     }
 
-    private void slideToRight() {
+    private void slideToRight() {//右滑
         slideHorizontalTo(1f);
         mDisappearDirect = SLIDE_TO_RIGHT;
     }
 
-    private void slideToOriginalPosition() {
+    private void slideToOriginalPosition() {//原地
         slideHorizontalTo(ORIGINAL_MIN_OFFSET);
         mDisappearDirect = SLIDE_RESTORE_ORIGINAL;
     }
 
-    private boolean slideHorizontalTo(float slideOffset) {
+    private boolean slideHorizontalTo(float slideOffset) {//滑动到水平方向上某位置
         int leftBound = -mPlayer.getWidth();
         int x = (int) (leftBound + slideOffset * mHorizontalRange);
         if (mDragHelper.smoothSlideViewTo(mPlayer, x, mTop)) {
@@ -300,18 +300,18 @@ public class DragVideoView extends ViewGroup {
         return false;
     }
 
-    private class MyHelperCallback extends CustomViewDragHelper.Callback {
+    private class MyHelperCallback extends CustomViewDragHelper.Callback { //继承CustomViewDragHelper的Callback
         @Override
-        public boolean tryCaptureView(View child, int pointerId) {
-            return child == mPlayer;
+        public boolean tryCaptureView(View child, int pointerId) {//当前view是否允许拖动
+            return child == mPlayer; //如果是显示视频区域的view
         }
 
         @Override
-        public void onViewDragStateChanged(int state) {
+        public void onViewDragStateChanged(int state) { //当ViewDragHelper状态发生变化时回调（IDLE,DRAGGING,SETTING[自动滚动时]）
             if (state == CustomViewDragHelper.STATE_IDLE) {
                 if (mIsMinimum && mDragDirect == HORIZONTAL && mDisappearDirect != SLIDE_RESTORE_ORIGINAL) {
                     if (mCallback != null && mCallback.get() != null)
-                        mCallback.get().onDisappear(mDisappearDirect);
+                        mCallback.get().onDisappear(mDisappearDirect);//水平方向上拖拽消失回调
 
                     mDisappearDirect = SLIDE_RESTORE_ORIGINAL;
                     restorePosition();
@@ -322,7 +322,7 @@ public class DragVideoView extends ViewGroup {
         }
 
         @Override
-        public int getViewVerticalDragRange(View child) {
+        public int getViewVerticalDragRange(View child) { //垂直方向拖动的最大距离
             int range = 0;
             if (child == mPlayer && mDragDirect == VERTICAL) {
                 range = mVerticalRange;
@@ -332,7 +332,7 @@ public class DragVideoView extends ViewGroup {
         }
 
         @Override
-        public int getViewHorizontalDragRange(View child) {
+        public int getViewHorizontalDragRange(View child) { //横向拖动的最大距离
             int range = 0;
 
             if (child == mPlayer && mIsMinimum && mDragDirect == HORIZONTAL) {
@@ -343,7 +343,7 @@ public class DragVideoView extends ViewGroup {
         }
 
         @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
+        public int clampViewPositionVertical(View child, int top, int dy) {//该方法中对child移动的边界进行控制，left , top 分别为即将移动到的位置
             int newTop = mTop;
             Log.d(TAG, ">> clampViewPositionVertical:" + top + "," + dy);
             if (child == mPlayer && mDragDirect == VERTICAL) {
@@ -356,7 +356,7 @@ public class DragVideoView extends ViewGroup {
         }
 
         @Override
-        public int clampViewPositionHorizontal(View child, int left, int dx) {
+        public int clampViewPositionHorizontal(View child, int left, int dx) { //返回横向坐标左右边界值  
             int newLeft = mLeft;
             Log.d(TAG, ">> clampViewPositionHorizontal:" + left + "," + dx);
             if (child == mPlayer && mIsMinimum && mDragDirect == HORIZONTAL) {
@@ -369,13 +369,13 @@ public class DragVideoView extends ViewGroup {
         }
 
         @Override
-        public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+        public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) { //view在拖动过程坐标发生变化时会调用此方法，包括两个时间段：手动拖动和自动滚动 
             Log.d(TAG, ">> onViewPositionChanged:" + "mDragDirect-" + mDragDirect + ",left-" + left + ",top-" + top + ",mLeft-" + mLeft);
             Log.d(TAG, ">> onViewPositionChanged-mPlayer:left-"+mPlayer.getLeft()+",top-"+mPlayer.getTop());
-            if (mDragDirect == VERTICAL) {
+            if (mDragDirect == VERTICAL) { //垂直方向
                 mTop = top;
                 mVerticalOffset = (float) (mTop - mMinTop) / mVerticalRange;
-            } else if (mIsMinimum && mDragDirect == HORIZONTAL) {
+            } else if (mIsMinimum && mDragDirect == HORIZONTAL) { // 水平方向
                 mLeft = left;
                 mHorizontalOffset = Math.abs((float) (mLeft + mPlayerMinWidth) / mHorizontalRange);
             }
@@ -383,19 +383,19 @@ public class DragVideoView extends ViewGroup {
         }
 
         @Override
-        public void onViewReleased(View releasedChild, float xvel, float yvel) {
-            if (mDragDirect == VERTICAL) {
+        public void onViewReleased(View releasedChild, float xvel, float yvel) {//
+            if (mDragDirect == VERTICAL) { //如果拖拽的方向是在垂直方向上
                 if (yvel > 0 || (yvel == 0 && mVerticalOffset >= 0.5f))
                     minimize();
                 else if (yvel < 0 || (yvel == 0 && mVerticalOffset < 0.5f))
                     maximize();
-            } else if (mIsMinimum && mDragDirect == HORIZONTAL) {
+            } else if (mIsMinimum && mDragDirect == HORIZONTAL) { //如果已经最小化窗口，并且是在水平方向上
                 if ((mHorizontalOffset < LEFT_DRAG_DISAPPEAR_OFFSET && xvel < 0))
-                    slideToLeft();
+                    slideToLeft(); //向左滑动
                 else if ((mHorizontalOffset > RIGHT_DRAG_DISAPPEAR_OFFSET && xvel > 0))
-                    slideToRight();
+                    slideToRight();// 向右滑动
                 else
-                    slideToOriginalPosition();
+                    slideToOriginalPosition();//原地不动
             }
         }
     }
@@ -491,7 +491,7 @@ public class DragVideoView extends ViewGroup {
     private void requestLayoutLightly() {
         justMeasurePlayer();
         onLayoutLightly();
-        ViewCompat.postInvalidateOnAnimation(this);
+        ViewCompat.postInvalidateOnAnimation(this);//进行重绘
     }
 
     public void setCallback(Callback callback) {

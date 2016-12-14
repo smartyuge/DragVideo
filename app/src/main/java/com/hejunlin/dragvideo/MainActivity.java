@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements DragVideoView.Cal
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextureView mVideoView;
     private MediaPlayer mMediaPlayer;
-    private DragVideoView mEffectPlayer;
+    private DragVideoView mDragVideoView;
     private ListView mDetailInfoListView;
     private ListView mProgramListView;
 
@@ -55,14 +55,14 @@ public class MainActivity extends AppCompatActivity implements DragVideoView.Cal
         mVideoView.setSurfaceTextureListener(this);
         mMediaPlayer = MediaPlayer.create(this,R.raw.test_4);
         mMediaPlayer.setOnPreparedListener(this);
-        mEffectPlayer = (DragVideoView) findViewById(R.id.drag_view);
-        mEffectPlayer.setCallback(this);
+        mDragVideoView = (DragVideoView) findViewById(R.id.drag_view);
+        mDragVideoView.setCallback(this);
         mDetailInfoListView = (ListView) findViewById(R.id.lv_info);
         mDetailInfoListView.setAdapter(ArrayAdapter.createFromResource(this, R.array.info_list, android.R.layout.simple_list_item_1));
     }
 
     private void playVideo() {
-        mEffectPlayer.show();
+        mDragVideoView.show();
         if (mMediaPlayer.isPlaying())
             return;
         try {
