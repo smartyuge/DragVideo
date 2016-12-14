@@ -46,5 +46,5 @@ limitations under the License.
 ```
 
 ###特别鸣谢：
-@flavienlaurent（法国Fourmob公司工程师）的项目、@Minsoo, Kim（韩国Kakao Corp工程师）的思路, JOJO(阿里巴巴工程师)
+@flavienlaurent（法国Fourmob公司工程师）、@Minsoo, Kim（韩国Kakao Corp工程师）、JOJO(阿里巴巴工程师)
 
