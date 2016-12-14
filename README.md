@@ -1,7 +1,7 @@
 # DragVideo
 A Method to Drag the Video When Playing Video
 
-一种在播放视频时，能够拖拽的方法
+一种在播放视频时，能够拖拽的方案
 
 ##为什么有这个工程
 
