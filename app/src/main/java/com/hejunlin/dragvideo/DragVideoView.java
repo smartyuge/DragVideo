@@ -47,7 +47,7 @@ public class DragVideoView extends ViewGroup {
     public static final int SLIDE_TO_RIGHT = 1 << 2;
 
     /**
-     * 播放器最低透明度，可惜SurfaceView不支持设置透明度的样子
+     * 播放器最低透明度
      */
     private static final float MIN_ALPHA = 0.2f;
 
@@ -72,8 +72,7 @@ public class DragVideoView extends ViewGroup {
     private static final String TAG = DragVideoView.class.getSimpleName();
 
     /**
-     * 自定义ViewDragHelper类，其基本从ViewDragHelper复制过来，只是做了一些处理，换成ViewDragHelper
-     * 也可以，只是性能有点影响
+     * 自定义ViewDragHelper类
      */
     private CustomViewDragHelper mDragHelper;
 
