@@ -22,6 +22,9 @@ A Method to Drag the Video When Playing Video
 - 3、进行渐变处理，让两个view的文字能够交替显示
 - 4、当TextureView到达右下方时，控制在水平方向上拖动，到达左边界时，如果再滑动，就销毁TextureView
 
+##代码分析：
+- 嗯，见我的个人公众号文章[《DragVideo，一种在播放视频时，可以任意拖拽的方案》](http://mp.weixin.qq.com/s?__biz=MzI2OTQxMTM4OQ==&mid=2247484292&idx=1&sn=614e959f69a6e37245ec14022ff8e7eb&chksm=eae1f6d6dd967fc0a35a8262d6f38ee7d2a628d0cb10ae6976b68040e0846a9792f9ccee642e#rd)
+
 
 ##欢迎关注我的个人公众号，android 技术干货，问题深度总结，FrameWork源码解析，插件化研究，最新开源项目推荐
 
